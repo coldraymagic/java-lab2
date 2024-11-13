@@ -138,7 +138,16 @@ public class IndyWinnerSimpleSV extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Short description";
+        String str = "The IndyWinnerSimpleSV servlet is designed to display"
+                + " a paginated list of Indy winner teams, showing details "
+                + "like the year, driver, average speed, and country in an "
+                + "HTML table format.\nIt processes both GET and POST requests"
+                + " (though POST is currently unused) and allows users to "
+                + "navigate through the list with \"Previous\" and \"Next\" "
+                + "buttons. \nThe servlet fetches data using an IndyWinnerDAO"
+                + " implementation and updates the displayed results based on"
+                + " the current page, which is managed as a class variable.";
+        return str;
     }// </editor-fold>
 
 }
