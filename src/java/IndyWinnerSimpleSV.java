@@ -18,8 +18,8 @@ import javax.servlet.jsp.tagext.PageData;
  *
  * @author coldr
  */
-@WebServlet(name = "lab2servlet", urlPatterns = {"/lab2servlet"})
-public class Lab2Servlet extends HttpServlet {
+@WebServlet(urlPatterns = {"/IndyWinnerSimpleSV"})
+public class IndyWinnerSimpleSV extends HttpServlet {
     private IndyWinnerDAO  indyWinnerDAO;
     private List<IndyWinnerTeam> results;
     private int page;
@@ -35,7 +35,7 @@ public class Lab2Servlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     
-    public Lab2Servlet(){
+    public IndyWinnerSimpleSV(){
         this.indyWinnerDAO = new IndyWinnerDAOImp();
         this.results= new ArrayList<>();
         this.page=0;
@@ -90,9 +90,9 @@ public class Lab2Servlet extends HttpServlet {
             throws ServletException, IOException {
         
         String action = request.getParameter("action");
-        if (action.equals("previous") && page > 0) {
+        if ("previous".equals(action) && page > 0) {
             page--;  
-        } else if (action.equals("next")) {
+        } else if ("next".equals(action)) {
             page++;  
         }
         

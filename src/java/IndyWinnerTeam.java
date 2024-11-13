@@ -60,7 +60,7 @@ public class IndyWinnerTeam {
     }
     
     public String toString(){
-        return String.format("[id: %d, driver: %s, average speed: %f, country: s]", year,driver,averageSpeed,country);
+        return String.format("[id: %d, driver: %s, average speed: %f, country: %s]", year,driver,averageSpeed,country);
     }
     
 }
