@@ -1,26 +1,45 @@
+/*  File name: DBConnection.java
+*  Author: Xinwei Wang, 41104208
+*  Course: CST8288-020
+*  Term: Fall2024
+*  Assignment: Lab2
+*  Date: 12, November, 2024
+*/
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 
 /**
+ * The Class DBConnection.
  *
- * @author coldr
+ * @author Xinwei Wang
  */
 public class DBConnection {
+    
+    /** The db connection singleton. */
     private static DBConnection dbConnectionSingleton;
     
+    /** The connection. */
     private Connection connection = null;
+    
+    /** The server url. */
     private String serverUrl = "jdbc:mysql://localhost:3306/indywinners";
+    
+    /** The user string. */
     private String userString = "root"; //Replace with your username
+    
+    /** The password string. */
     private String passwordString = "502503"; //Replace with your password
+    
+    /** The driver string. */
     private String driverString = "com.mysql.cj.jdbc.Driver";
     
+/**
+ * Instantiates a new DB connection.
+ */
 private DBConnection() {
     try {
         Class.forName(driverString);
@@ -36,6 +55,12 @@ private DBConnection() {
 }
 
     
+/**
+ * Gets the single instance of DBConnection.
+ *
+ * @return single instance of DBConnection
+ * @throws SQLException the SQL exception
+ */
 public static DBConnection getInstance() throws SQLException {
     if (dbConnectionSingleton == null || dbConnectionSingleton.getConnection() == null) {
         dbConnectionSingleton = new DBConnection();
@@ -44,6 +69,11 @@ public static DBConnection getInstance() throws SQLException {
 }
 
 
+    /**
+     * Gets the connection.
+     *
+     * @return the connection
+     */
     public Connection getConnection() {
 	return connection;
     }   

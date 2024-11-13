@@ -1,7 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+/*  File name: IndyWinnerDAOImp.java
+*  Author: Xinwei Wang, 41104208
+*  Course: CST8288-020
+*  Term: Fall2024
+*  Assignment: Lab2
+*  Date: 12, November, 2024
+*/
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,12 +13,20 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
+ * The Class IndyWinnerDAOImp.
  *
- * @author coldr
+ * @author Xinwei Wang
  */
 public class IndyWinnerDAOImp implements IndyWinnerDAO{
+    
+    /** The connection. */
     private Connection connection;
+
+/**
+ * Instantiates a new indy winner DAO imp.
+ */
 public IndyWinnerDAOImp() {
     try {
         this.connection = DBConnection.getInstance().getConnection();
@@ -32,6 +44,12 @@ public IndyWinnerDAOImp() {
     
 
     
+    /**
+     * Display.
+     *
+     * @param page the page
+     * @return the list
+     */
     @Override
     public List<IndyWinnerTeam> display(int page) {
             List<IndyWinnerTeam> teams = new ArrayList<>();

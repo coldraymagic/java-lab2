@@ -1,7 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
+/*  File name: IndyWinnerSimpleSV.java
+*  Author: Xinwei Wang, 41104208
+*  Course: CST8288-020
+*  Term: Fall2024
+*  Assignment: Lab2
+*  Date: 12, November, 2024
+*/
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,25 +17,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.tagext.PageData;
 
+
 /**
+ * The Class IndyWinnerSimpleSV.
  *
- * @author coldr
+ * @author Xinwei Wang
  */
 @WebServlet(urlPatterns = {"/IndyWinnerSimpleSV"})
 public class IndyWinnerSimpleSV extends HttpServlet {
+    
+    /** The indy winner DAO. */
     private IndyWinnerDAO  indyWinnerDAO;
+    
+    /** The results. */
     private List<IndyWinnerTeam> results;
+    
+    /** The page. */
     private int page;
     
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
      */
     
     public IndyWinnerSimpleSV(){
@@ -40,6 +46,16 @@ public class IndyWinnerSimpleSV extends HttpServlet {
         this.results= new ArrayList<>();
         this.page=0;
     }
+    
+    /**
+     * Process request.
+     *
+     * @param request the request
+     * @param response the response
+     * @param results the results
+     * @throws ServletException the servlet exception
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response, List<IndyWinnerTeam> results)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
